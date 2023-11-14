@@ -1,0 +1,24 @@
+{% extends "ukraine_swu/base.html" %}
+
+{% block content %}
+
+
+<section id="entry_page">
+    <div id="edit-card">
+      <div><h2>Редагувати проект:</h2></div>
+      <form action="{% url 'ukraine_swu:edit_entry' entry.id %}" method='post'>
+        {% csrf_token %}
+        <div id="form_elements">
+          <div class="form-field">{{ form.topic.label}}</div><div class="form-field">{{ form.topic }}</div>
+          <div class="form-field">{{ form.header.label}}</div><div class="form-field">{{ form.header }}</div>
+          <div class="form-field">{{ form.image.label}}</div><div class="form-field">{{ form.image }}</div>
+          <div class="form-field">{{ form.budget.label}}</div><div class="form-field">{{ form.budget }}</div>
+          <div class="form-field">{{ form.text.label}}</div><div class="form-field">{{ form.text }}</div>
+          <div class="form-field">{{ form.full_text.label}}</div><div class="form-field">{{ form.full_text }}</div>
+        </div>
+        <button id="save-btn" name="submit">Зберегти</button>
+      </form>
+    </div>
+</section> 
+
+{% endblock content %}

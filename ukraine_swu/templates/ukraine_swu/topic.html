@@ -1,0 +1,31 @@
+{% extends 'ukraine_swu/base.html' %}
+
+{% block content %}
+
+<section id="entries-page">
+  <div class="category-title"><h2>{{ topic.text }}</h2></div>
+
+  <div>
+    <a id="edit_entry" href="{% url 'ukraine_swu:new_entry' topic.id %}">Новий проект</a>
+  </div>
+
+  <div id="grid-projects">
+    {% for entry in entries %}
+    <div class="card">
+      <img src='{{ entry.image }}' />
+      <div>
+        <a class="entry_header" href="{% url 'ukraine_swu:entry_page' entry.id %}">{{ entry.header }}</a>
+        <p>
+          {{ entry.text|linebreaks }}
+        </p>
+        <button><a href="{% url 'ukraine_swu:entry_page' entry.id %}">Детальніше</a></button>
+      </div>
+    </div>
+    {% empty %}
+      <p>Немає проектів</p>
+    {% endfor %}
+
+  </div>
+</section>
+
+{% endblock content %}

@@ -1,0 +1,50 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Україна починається з тебе</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+    <link rel="stylesheet" href="{% static 'ukraine_swu/styles.css' %}">
+    <link rel="icon" type="image/png" href="{% static 'ukraine_swu/favicon.ico' %}">
+   
+  </head>
+  <body>
+    <button class="burger" onclick="toggleMenu()"></button>
+    <div class="menu">
+      <nav>
+        <a href="{% url 'ukraine_swu:index' %}" style="animation-delay: 0.3s">Головна</a>
+        <a href="{% url 'ukraine_swu:people' %}" style="animation-delay: 0.3s">Люди</a>
+        {% for topic in topics %}
+  
+        <a href="{% url 'ukraine_swu:topic' topic.id %}" style="animation-delay: 0.3s">{{ topic.text }}</a>
+  
+        {% endfor %}
+      </nav>
+    </div>
+    <div class="content">
+      {% block content %}{% endblock content %}
+    </div>
+    <script type="text/javascript">
+      const toggleMenu = () => document.body.classList.toggle("open");
+    </script>
+  </body>
+
+  <footer>
+    <div class="f1">
+      <div id="copy">Горохів 2023</div>
+      <div id="socials">
+          <a href="https://instagram.com"><img class='social-icon' src="{% static 'ukraine_swu/instagram.png' %}"></a>
+          <a href="https://facebook.com"><img class='social-icon' src="{% static 'ukraine_swu/facebook.png' %}"></a>
+          <a href="https://telegram.org"><img class='social-icon' src="{% static 'ukraine_swu/telegram.png' %}"></a>
+          <a href="https://viber.com"><img class='social-icon' src="{% static 'ukraine_swu/viber.png' %}"></a>
+          <a href="https://github.com"><img class='social-icon' src="{% static 'ukraine_swu/github.png' %}"></a>
+      </div>
+    </div>
+  </footer>
+</html>

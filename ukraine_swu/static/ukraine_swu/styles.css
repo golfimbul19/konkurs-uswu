@@ -1,0 +1,699 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&display=swap");
+* {
+  box-sizing: border-box;
+  
+}
+
+html {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  scroll-behavior: smooth;
+  font-family: "Montserrat", sans-serif;
+}
+h1, h2{
+color: #26384E;
+}
+body {
+  margin: 0;
+  background: linear-gradient(45deg, #ffa600 14.7%, #ff6361 73%);background-attachment: fixed;
+  background-size: cover;
+  -webkit-animation: gradient 15s ease infinite;
+          animation: gradient 15s ease infinite;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;   
+  width: 100%;
+}
+
+/*Стилі меню*/
+button {
+  border: 0;
+  padding: 0;
+  background: transparent;
+  cursor: pointer;
+}
+
+.burger,
+.menu {
+  position: fixed;
+}
+
+.burger {
+  z-index: 3;
+  top: 0;
+  left: 0;
+  display: grid;
+  place-items: center;
+  width: 88px;
+  height: 88px;
+  background-image: url("menu.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+body.open .burger {
+  background-image: url("close.svg");
+}
+
+.menu {
+  z-index: 2;
+  top: 0;
+  left: 0;
+  display: grid;
+  place-items: center;
+  width: 400px;
+  height: 100%;
+  background: #07030a;
+  translate: -100% 0;
+  transition: translate 0.375s cubic-bezier(0.175, 0.885, 0.32, 1);
+}
+
+.menu nav {
+  opacity: 0;
+}
+
+@keyframes menu-in {
+  0% {
+    clip-path: ellipse(60% 60% at 0% 50%);
+  }
+  100% {
+    clip-path: ellipse(120% 120% at 0% 50%);
+  }
+}
+
+body.open .menu {
+  opacity: 1;
+  visibility: visible;
+  translate: 0;
+  animation: menu-in 0.375s;
+}
+
+body.open .menu nav {
+  opacity: 1;
+}
+
+.menu nav:hover a {
+  opacity: 0.25;
+}
+
+.menu nav a:hover {
+  opacity: 1;
+}
+
+.menu nav {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.menu a {
+  position: relative;
+  color: #f9f9f9;
+  font-size: 32px;
+  font-family: "Euclid Circular A";
+  padding: 20px 0;
+  width: 300px;
+  text-decoration: none;
+  transition: 0.4s;
+}
+
+.menu a::before,
+.menu a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 10px;
+  width: 100%;
+  height: 2px;
+  border-radius: 2px;
+  transition: 0.4s;
+}
+
+.menu a::before {
+  opacity: 0;
+  background: rgb(255 255 255 / 20%);
+}
+
+.menu a::after {
+  transform: scaleX(0);
+  transform-origin: 0% 50%;
+  background: #f7f7f7;
+}
+
+.menu a:hover::before {
+  opacity: 1;
+}
+
+.menu a:hover::after {
+  transform: scaleX(1);
+}
+
+body.open .menu a {
+  animation: appear 0.25s backwards;
+}
+
+@keyframes appear {
+  0% {
+    opacity: 0;
+    translate: -30px 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/*Стилі головної сторінки*/
+.all{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+video{
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  z-index: -1;
+}
+
+#title{
+  display: flex;
+  position: absolute;
+  top: 0;
+  width: 100%; 
+  height: 100vh;
+  justify-items: center;
+  align-items: center;
+
+}
+#title p{
+  margin: auto;
+  text-align: center;
+  color:#fff;
+  font-size: 4em;
+  padding-top: 25px;
+  padding-bottom: 25px;
+  line-height: 100px;
+  font-weight: bold;
+}
+
+
+/*Стилі слайдера*/
+.slides{
+  display: grid;
+  grid-template-rows: auto;
+  justify-content: center;
+  width: 80%;
+  
+}
+#projects-title{
+  margin: auto;
+  text-align: center;
+  color:#26384E;
+  padding-bottom: 15px;
+ }
+h1 {
+  margin: 0;
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 32px;
+  color: #26384E;
+  transform: translateY(20px);
+  transition: all 0.4s ease;
+  transition-delay: 0.2s;
+  overflow: hidden;
+  max-width: 100%;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+@media screen and (max-width: 520px) {
+  h1 {
+    font-size: 16px;
+    line-height: 24px;
+  }
+}
+
+p {
+  font-size: 16px;
+  line-height: 24px;
+  color: #889DB8;
+  transform: translateY(20px);
+  transition: all 0.4s ease;
+  transition-delay: 0.3s;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+@media screen and (max-width: 520px) {
+  p {
+      font-size: 14px;
+      line-height: 20px;
+    }
+}
+
+.swiper-wrapper {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  z-index: 1;
+  position: relative;
+}
+
+.swiper-container {
+  background: linear-gradient(270deg, #f7f9ff 0%, #f2f6ff 100%);
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  width: 100%;
+  position: relative;
+  max-width: 900px;/*700*/
+  height: 80%;
+  max-height: 900px;/*700*/
+  border-radius: 10px;
+  margin-top: 5%;
+}
+
+@media screen and (max-width: 520px) {
+  .swiper-container {
+      max-width: 300px;
+      
+    }
+}
+.slider-image-wrapper {
+  max-height: 500px;/*300*/
+  width: 100%;
+  overflow: hidden;
+}
+
+.slider-item {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  opacity: 0;
+  background: linear-gradient(270deg, #f7f9ff 0%, #f2f6ff 100%);
+  cursor: -webkit-grab;
+  cursor: grab;
+}
+.slider-item-content {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  transition: 0.4s;
+}
+.slider-item-content > * {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.swiper-slide-active .slider-item-content > * {
+  transform: translateY(0px);
+  opacity: 1;
+}
+
+.slider-image {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+    object-fit: cover;
+  transition: 0.2s;
+}
+
+.swiper-pagination {
+  position: absolute;
+  left: 50%;
+  bottom: 8px;
+  transform: translatex(-50%);
+  z-index: 1;
+  width: auto !important;
+}
+
+.swiper-pagination-bullet {
+  border-radius: 0;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  line-height: 30px;
+  font-size: 12px;
+  opacity: 1;
+  background: rgba(255, 185, 0, 0.3);
+  display: inline-block;
+  margin-right: 8px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.swiper-pagination-bullet-active {
+  background: #FFB200;
+  width: 20px;
+  border-radius: 10px;
+}
+
+.slider-buttons {
+  position: absolute;
+  display: flex;
+  top: 100%;
+  justify-content: space-evenly;
+
+  width: 100%;
+  padding-top: 8px;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  color: #fff;
+  position: relative;
+  margin-left: 4px;
+}
+.swiper-button-next:before,
+.swiper-button-prev:before {
+  content: "";
+  position: absolute;
+  background-color: #fff;
+  height: 1px;
+  width: 0;
+  left: 0;
+  bottom: -1px;
+  transition: 0.2s;
+}
+.swiper-button-next:hover:before,
+.swiper-button-prev:hover:before {
+  width: 100%;
+}
+
+@media screen and (max-width: 520px) {
+  .swiper-button-next:hover:before,
+.swiper-button-prev:hover:before {
+    display: none;
+  }
+}
+
+/*Сторінка з проектами*/
+section{
+  margin-top: 75px;
+  }
+#grid-projects {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  background-size: 16px 16px;
+  flex-direction: column;
+}
+
+.category-title h2{
+  text-align: center;
+}
+.card {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  width: 75vw;
+  max-width: 950px;
+  padding: 50px 30px 50px 20px;
+  background: #ffffff;
+  border-radius: 24px;
+  height: 400px;
+}
+
+.card img {
+  max-width: 280px;
+  width: 28vw;
+  height: 300px;
+  object-fit: cover;
+  margin-left: -60px;
+  margin-right: 30px;
+  border-radius: inherit;
+  box-shadow: 0 60px 40px rgb(0 0 0 / 8%);
+}
+  
+.card h2 {
+  font-size: 22px;
+  margin-right: 30px;
+}
+
+.card p {
+  font-size: 14px;
+  font-weight: 400;
+  color: rgb(0 0 0 / 70%);
+  margin-bottom: 24px;
+}
+
+.card button {
+  border: 0;
+  background: linear-gradient(90deg, #5448de, #5448de);
+  color: #f8f8f8;
+  font-family: inherit;
+  padding: 16px 26px;
+  font-size: 16px;
+  border-radius: 40px;
+}
+.card a{
+  text-decoration: none;
+}
+.entry_header{
+  font-size: 2em;
+}
+
+@media (width <= 740px) {
+  .card {
+    margin: 50px 0px;
+    padding-left: 50px;
+    padding-right: 50px;
+    width: 90%;
+    height: 100%;
+    text-align: center;
+    flex-direction: column;
+  }
+
+  .card h2 {
+    margin-right: 0;
+    font-size: 26px;
+  }
+
+  .card img {
+    margin: -100px 0 30px 0;
+    width: 100%;
+    max-width: 1000px;
+  }
+}
+
+/*Сторінка з волонтерами*/
+#people {
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+#people_header{
+  margin-bottom: 50px;
+}
+
+.people-group {
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.people-item {
+  width: 15vw;
+  height: 75vh;
+  background-position: center;
+  background-size: 75vh;
+  margin: 1vw;
+  border-radius: 3vw;
+  display: inline-block;
+  cursor: pointer;
+  
+}
+.people-item h1{
+overflow: hidden;
+position: relative;
+top: 60vh;
+background-color: #889DB8;
+padding: 5px;
+
+}
+
+@media (width <= 740px) {
+  .people-group{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .people-item{
+    width: 85vw;
+    height: 50vh;
+    background-size: 50vh;
+  }
+  .people-item h1{
+    top: 40vh;
+    padding: 5px;
+    
+    }
+}
+
+  /*Сторінка окремого проекту*/
+
+#card{
+  margin-top: 10%;
+  margin-bottom: 10%;
+  /*padding-bottom: 20px;*/
+  width: 75vw;
+  border-radius: 10px;
+  background-color: aliceblue;
+  overflow: hidden;
+}
+
+#coins{
+  height: 60px;
+  background-image: url("coins.svg");
+  width: 60px;
+}
+
+#entry_image img{
+  width: 100%;
+  -o-object-fit: cover;
+      object-fit: cover;
+}
+#header{
+  padding: 20px;
+  margin: 0;
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 32px;
+  color: #26384E;
+}
+#text{
+  line-height: 1.8;
+}
+#edit_entry{
+  margin: 20px;
+  text-decoration: none;
+  padding: 7px;
+  border-radius: 2px;
+  display: block;
+  background-color: bisque;
+  color:#ff6361;
+  width: 120px;
+  text-align: center;
+}
+
+/*Сторінка редагування проекту*/
+
+#save-btn {
+  border: none;
+  outline: none;
+  background: #fff;
+  color: #275360;
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 10px 18px;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: 0.15s ease;
+}
+
+#save-btn:hover {
+  background: #ddd;
+}
+
+#edit-card{
+  margin-top: 10%;
+  margin-bottom: 10%;
+  padding: 20px;
+  width: 70vw;
+  border-radius: 10px;
+  background-color: aliceblue;
+  overflow: hidden;
+}
+
+
+#form_elements{
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+
+/*Футер*/
+
+footer{
+  background-color: #26384E;
+  width: 100%;
+  height: 100px;
+  color:#f9f9f9;
+  padding: 30px 60px 30px 60px;
+}
+.social-icon{
+  height: 2em;
+}
+.f1{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+#socials{
+  width: 20%;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+#socials a:hover{
+  transform: scale(1.5);
+}
+@media (width <= 740px) {
+  .f1{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+  }
+  #copy{
+    margin-bottom: 10px;
+  }
+  #socials{
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+  }
+}
+
+/* сторінка входу і реєстрації */
+#login-register{
+  height: 70vh;
+}
+#login-card{
+  margin-top: 10%;
+  margin-bottom: 10%;
+  padding: 20px;
+  width: 70vw;
+  border-radius: 10px;
+  background-color: aliceblue;
+  overflow: hidden;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}

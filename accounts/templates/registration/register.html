@@ -1,0 +1,19 @@
+{% extends "ukraine_swu/base.html" %}
+
+{% block content %}
+
+
+<section id="login-register">
+  <div id="login-card">
+    <div><h2>Сторінка реєстрації</h2></div>
+    <form action="{% url 'accounts:register' %}" method='post'>
+      {% csrf_token %}
+      {{ form.as_div }}
+  
+      <button id="save-btn" name="submit">Зареєструватись</button>
+    </form>
+  </div>
+</section> 
+  
+
+{% endblock content %}
