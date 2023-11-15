@@ -54,6 +54,13 @@ button {
   background-position: center;
 }
 
+@media (width <= 800px) {
+  .burger {
+    width: 50px;
+    height: 50px;
+  } 
+}
+
 body.open .burger {
   background-image: url("close.svg");
 }
@@ -195,7 +202,7 @@ video{
   margin: auto;
   text-align: center;
   color:#fff;
-  font-size: 4em;
+  font-size: 3em;
   padding-top: 25px;
   padding-bottom: 25px;
   line-height: 100px;
@@ -430,7 +437,17 @@ section{
   border-radius: 24px;
   height: 400px;
 }
-
+@media (width <= 780px) {
+  .card {
+    margin: 50px 0px;
+    padding-left: 50px;
+    padding-right: 50px;
+    width: 90%;
+    height: 100%;
+    text-align: center;
+    flex-direction: column;
+  }
+}
 .card img {
   max-width: 280px;
   width: 28vw;
@@ -445,6 +462,10 @@ section{
 .card h2 {
   font-size: 22px;
   margin-right: 30px;
+}
+
+.entry_header{
+  color:#07030a;
 }
 
 .card p {
@@ -462,6 +483,9 @@ section{
   padding: 16px 26px;
   font-size: 16px;
   border-radius: 40px;
+}
+.card button a{
+  color: #ffffff;
 }
 .card a{
   text-decoration: none;
