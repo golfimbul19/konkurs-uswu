@@ -23,7 +23,6 @@ def people(request):
 def topic(request, topic_id):
     """Категорія і проекти"""
     topic = Topic.objects.get(id=topic_id)
-    # Make sure the topic belongs to the current user.
     
     entries = topic.entry_set.order_by('-date_added')
 
@@ -45,10 +44,10 @@ def new_entry(request, topic_id):
     topic = Topic.objects.get(id=topic_id)
     topics = Topic.objects.order_by('date_added')
     if request.method != 'POST':
-        # No data submitted; create a blank form.
+        
         form = EntryForm()
     else:
-        # POST data submitted; process data.
+     
         form = EntryForm(data=request.POST)
         if form.is_valid():
             new_entry = form.save(commit=False)
@@ -56,7 +55,7 @@ def new_entry(request, topic_id):
             new_entry.save()
             return redirect('ukraine_swu:topic', topic_id=topic_id)
 
-    # Display a blank or invalid form.
+ 
     context = {'topic': topic, 'form': form, 'topics': topics}
     return render(request, 'ukraine_swu/new_entry.html', context)
 
@@ -66,14 +65,12 @@ def edit_entry(request, entry_id):
     entry = Entry.objects.get(id=entry_id)
     topic = entry.topic
     topics = Topic.objects.order_by('date_added')
-    if topic.owner != request.user:
-        raise Http404
 
     if request.method != 'POST':
-        # Initial request; pre-fill form with the current entry.
+    
         form = EntryForm(instance=entry)
     else:
-        # POST data submitted; process data.
+     
         form = EntryForm(instance=entry, data=request.POST)
         if form.is_valid():
             form.save()

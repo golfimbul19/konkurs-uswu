@@ -559,7 +559,6 @@ padding: 5px;
 #card{
   margin-top: 10%;
   margin-bottom: 10%;
-  /*padding-bottom: 20px;*/
   width: 75vw;
   border-radius: 10px;
   background-color: aliceblue;
@@ -571,17 +570,20 @@ padding: 5px;
   background-image: url("coins.svg");
   width: 60px;
 }
-
+#content{
+  padding: 0 40px 20px 40px;
+}
 #entry_image img{
   width: 100%;
   -o-object-fit: cover;
       object-fit: cover;
 }
 #header{
-  padding: 20px;
+  
+  padding: 10px 0px 20px 0px;
   margin: 0;
   font-weight: bold;
-  font-size: 24px;
+  font-size: 32px;
   line-height: 32px;
   color: #26384E;
 }
@@ -681,9 +683,7 @@ footer{
 }
 
 /* сторінка входу і реєстрації */
-#login-register{
-  height: 70vh;
-}
+
 #login-card{
   margin-top: 10%;
   margin-bottom: 10%;
@@ -691,7 +691,6 @@ footer{
   width: 70vw;
   border-radius: 10px;
   background-color: aliceblue;
-  overflow: hidden;
   align-items: center;
   display: flex;
   flex-direction: column;
