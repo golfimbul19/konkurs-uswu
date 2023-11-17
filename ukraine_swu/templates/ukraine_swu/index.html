@@ -39,6 +39,29 @@
     </div>
   </div>
 </div>
+
+<section>
+  
+  <div class="entry-cards">
+    {% for entry in entries %}
+    <div class="entry-card">
+        <div class="face face1">
+            <div class="content">
+                <img src="{{ entry.image }}">
+                <h3>{{ entry.header }}</h3>
+            </div>
+        </div>
+        <div class="face face2">
+            <div class="content">
+                <p>{{ entry.text }}</p>
+                    <a href="{% url 'ukraine_swu:entry_page' entry.id %}">Більше</a>
+            </div>
+        </div>
+    </div>
+    {% endfor %}  
+  </div>
+</section>
+
 <section id="people">
   <div id="people_header"><h1>Учасники проекту</h1></div>
   <div class="people-group">

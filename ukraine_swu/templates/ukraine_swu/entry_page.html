@@ -9,11 +9,12 @@
         <div id="header"><h1>{{ entry.header }}</h1></div>
      
             <div id="entry-topic">Категорія: {{ entry.topic }}</div>
-            <div id="entry-budget"><div id='coins'></div>{{ entry.budget }} грн</div>
+            <div id="entry-budget"><div id='coins'></div><div></div>{{ entry.budget }} грн</div>
             <div id="text">{{ entry.text }}</div>
             <div id="text">{{ entry.rich_text|safe }}</div>
-            <div ><a id="edit_entry" href="{% url 'ukraine_swu:edit_entry' entry.id %}">Редагувати</a></div>
+            
         </div>
+        <div ><a id="edit_entry" href="{% url 'ukraine_swu:edit_entry' entry.id %}">Редагувати</a></div>
     </div>
 </section>  
 {% endblock content %}
