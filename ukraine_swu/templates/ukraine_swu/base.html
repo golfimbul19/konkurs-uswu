@@ -19,7 +19,6 @@
     <div class="menu">
       <nav>
         <a href="{% url 'ukraine_swu:index' %}" style="animation-delay: 0.3s">Головна</a>
-        <a href="{% url 'ukraine_swu:people' %}" style="animation-delay: 0.3s">Люди</a>
         {% for topic in topics %}
   
         <a href="{% url 'ukraine_swu:topic' topic.id %}" style="animation-delay: 0.3s">{{ topic.text }}</a>
@@ -43,7 +42,6 @@
           <a href="https://facebook.com"><img class='social-icon' src="{% static 'ukraine_swu/facebook.png' %}"></a>
           <a href="https://telegram.org"><img class='social-icon' src="{% static 'ukraine_swu/telegram.png' %}"></a>
           <a href="https://viber.com"><img class='social-icon' src="{% static 'ukraine_swu/viber.png' %}"></a>
-          <a href="https://github.com"><img class='social-icon' src="{% static 'ukraine_swu/github.png' %}"></a>
       </div>
     </div>
   </footer>

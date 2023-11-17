@@ -11,15 +11,16 @@ def index(request):
     topics = Topic.objects.order_by('date_added')
     topic = Entry.objects.all()
     entries = topic.order_by('-date_added')
-    context = {'topic': topic,'topics': topics, 'entries': entries}
+    people = Volunteer.objects.all()
+    context = {'topic': topic,'topics': topics, 'entries': entries, 'people': people}
     return render(request, 'ukraine_swu/index.html', context)
-
+'''
 def people(request):
     people = Volunteer.objects.all()
     topics = Topic.objects.order_by('date_added')
     context = {'topics': topics,'people': people}
     return render(request, 'ukraine_swu/people.html', context)
-
+'''
 def topic(request, topic_id):
     """Категорія і проекти"""
     topic = Topic.objects.get(id=topic_id)

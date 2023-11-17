@@ -9,7 +9,7 @@ urlpatterns = [
     # Home page
     path('', views.index, name='index'),
     # Page that shows all topics.
-    path('people/', views.people, name='people'),
+    #path('people/', views.people, name='people'),
     # Detail page for a single topic.
     path('topic/<int:topic_id>/', views.topic, name='topic'),
     # Page for adding a new entry.
