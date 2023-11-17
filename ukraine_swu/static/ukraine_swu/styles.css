@@ -172,7 +172,13 @@ body.open .menu a {
     opacity: 1;
   }
 }
-
+.user-login, .user-login a{
+  position: relative;
+  color: #f9f9f9;
+  font-size: 20px;
+  font-family: "Euclid Circular A";
+  padding: 20px 0;
+}
 /*Стилі головної сторінки*/
 .all{
   display: flex;
@@ -741,6 +747,7 @@ footer{
   display: flex;
   justify-content: space-between;
   margin: auto;
+  flex-wrap: wrap;
 }
 @media (width<=1000px){
   .entry-cards{

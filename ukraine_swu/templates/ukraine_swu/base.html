@@ -24,6 +24,20 @@
         <a href="{% url 'ukraine_swu:topic' topic.id %}" style="animation-delay: 0.3s">{{ topic.text }}</a>
   
         {% endfor %}
+        <hr>
+        
+        {% if user.is_authenticated %}
+        <p class="user-login">Привіт, {{ user.username }}!</p>
+        {% else %}
+          <a class="user-login" href="{% url 'accounts:register' %}">Реєстрація</a>
+          <a class="user-login" href="{% url 'accounts:login' %}">Вхід</a>
+        {% endif %}
+        {% if user.is_authenticated %}
+          <form action="{% url 'accounts:logout' %}" method='post'>
+            {% csrf_token %}
+            <button name='submit'>Вийти</button>
+          </form>
+        {% endif %}
       </nav>
     </div>
     <div class="content">
