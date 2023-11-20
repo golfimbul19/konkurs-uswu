@@ -13,68 +13,47 @@
       <div id="title"><p>Україна починається з тебе</p></div>
   </div>
 
-<section>
-  <div><h1 id="projects-title">Проекти:</h1></div>
-  <div class="entry-cards">
-    {% for entry in entries %}
-    <div class="entry-card">
-        <div class="face face1">
-            <div class="content">
-                <img src="{{ entry.image }}">
-                <h3>{{ entry.header }}</h3>
-            </div>
-        </div>
-        <div class="face face2">
-            <div class="content">
-                <p>{{ entry.text }}</p>
-                    <a href="{% url 'ukraine_swu:entry_page' entry.id %}">Більше</a>
-            </div>
-        </div>
-    </div>
-    {% endfor %}  
-  </div>
-</section>
-
-<section id="people">
-  <div id="people_header"><h1>Учасники проекту</h1></div>
-  <div class="people-group">
-    {% for person in people %}
-      <div class="people-item" style="background-image: url('{{ person.photo }}')">
-        <h1>{{ person.name }}</h1>
+  <section id="projects">
+    <div id="projects-title"><h1 >Проекти:</h1></div>
+    <div class="entry-cards">
+      {% for entry in entries %}
+      <div class="entry-card">
+          <div class="face face1">
+              <div class="content">
+                  <!--<img src="{{ entry.image }}">-->
+                  <h3><a href="{% url 'ukraine_swu:entry_page' entry.id %}">{{ entry.header }}</a></h3>
+              </div>
+          </div>
+          <div class="face face2">
+              <div class="content">
+                  <p>{{ entry.text }}</p>
+                      <a href="{% url 'ukraine_swu:entry_page' entry.id %}">Більше</a>
+              </div>
+          </div>
       </div>
-    {% endfor %}
-  </div>
- 
-    <script src='https://unpkg.co/gsap@3/dist/gsap.min.js'></script>
+      {% endfor %}  
+    </div>
+  </section>
+
+  <section id="people">
+    <div id="people_header"><h1>Учасники проекту</h1></div>
+    <div class="people-group">
+      {% for person in people %}
+        <div class="people-item" style="background-image: url('{{ person.photo }}')">
+          <h1>{{ person.name }}</h1>
+        </div>
+      {% endfor %}
+    </div>
   
-</section>
+      <script src='https://unpkg.co/gsap@3/dist/gsap.min.js'></script>
+    
+  </section>
 </div>
 </body>
 
 <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js'></script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/Swiper/6.4.5/swiper-bundle.min.js'></script>
 <script >
-    var swiper = new Swiper('.swiper-container', {
-    slidesPerView: 1,
-    spaceBetween: 20,
-    effect: 'fade',
-    loop: true,
-    speed: 300,
-    mousewheel: {
-      invert: false,
-    },
-    pagination: {
-      el: '.swiper-pagination',
-      clickable: true,
-      dynamicBullets: true
-    },
-    // Navigation arrows
-    navigation: {
-      nextEl: '.swiper-button-next',
-      prevEl: '.swiper-button-prev',
-    }
-  });
-
   if (window.innerWidth > 740) { 
   const items = document.querySelectorAll('.people-item');
   const expand = (item, i) => {
