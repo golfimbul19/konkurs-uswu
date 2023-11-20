@@ -6,17 +6,16 @@ from . import views
 
 app_name = 'ukraine_swu'
 urlpatterns = [
-    # Home page
+    # Домашня
     path('', views.index, name='index'),
-    # Page that shows all topics.
-    #path('people/', views.people, name='people'),
-    # Detail page for a single topic.
+    
+    # Сторінка категорії
     path('topic/<int:topic_id>/', views.topic, name='topic'),
-    # Page for adding a new entry.
+    # Сторінка нового проекту
     path('new_entry/<int:topic_id>/', views.new_entry, name='new_entry'),
-    # Page for editing an entry.
+    # Сторінка редагування проекту
     path('edit_entry/<int:entry_id>/', views.edit_entry, name='edit_entry'),
-
+    #Сторінка проекту
     path('entry_page/<int:entry_id>/', views.entry_page, name='entry_page'),
 
  

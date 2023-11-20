@@ -13,35 +13,8 @@
       <div id="title"><p>Україна починається з тебе</p></div>
   </div>
 
-  <div id='slides' class="slides">
-    <div><h1 id="projects-title">Проекти:</h1></div>
-    <div class="swiper-container">
-      <div class="swiper-wrapper">
-        {% for entry in entries %}
-        <div class="slider-item swiper-slide">
-          <div class="slider-image-wrapper">
-            <a href="{% url 'ukraine_swu:entry_page' entry.id %}"><img class="slider-image" src="{{ entry.image }}" alt="SliderImg"></a>
-          </div>
-          <div class="slider-item-content">
-            <a href="{% url 'ukraine_swu:entry_page' entry.id %}"><h1>{{ entry.header }}</h1></a>
-            <p>{{ entry.text }}</p>
-          </div>
-        </div>
-        {% endfor %}
-        
-      </div>
-      <div class="slider-buttons">
-        <button class="swiper-button-prev">Попередній</button>
-        <button class="swiper-button-next">Наступний</button>
-      </div>
-
-      <div class="swiper-pagination"></div>
-    </div>
-  </div>
-</div>
-
 <section>
-  
+  <div><h1 id="projects-title">Проекти:</h1></div>
   <div class="entry-cards">
     {% for entry in entries %}
     <div class="entry-card">
@@ -75,6 +48,7 @@
     <script src='https://unpkg.co/gsap@3/dist/gsap.min.js'></script>
   
 </section>
+</div>
 </body>
 
 <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js'></script>

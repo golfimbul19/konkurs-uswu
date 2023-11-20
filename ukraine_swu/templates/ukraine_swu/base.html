@@ -24,20 +24,7 @@
         <a href="{% url 'ukraine_swu:topic' topic.id %}" style="animation-delay: 0.3s">{{ topic.text }}</a>
   
         {% endfor %}
-        <hr>
-        
-        {% if user.is_authenticated %}
-        <p class="user-login">Привіт, {{ user.username }}!</p>
-        {% else %}
-          <a class="user-login" href="{% url 'accounts:register' %}">Реєстрація</a>
-          <a class="user-login" href="{% url 'accounts:login' %}">Вхід</a>
-        {% endif %}
-        {% if user.is_authenticated %}
-          <form action="{% url 'accounts:logout' %}" method='post'>
-            {% csrf_token %}
-            <button name='submit'>Вийти</button>
-          </form>
-        {% endif %}
+  
       </nav>
     </div>
     <div class="content">
@@ -50,7 +37,7 @@
 
   <footer>
     <div class="f1">
-      <div id="copy">Горохів 2023</div>
+      <div id="copy">Виконав Саган Сергій</div>
       <div id="socials">
           <a href="https://instagram.com"><img class='social-icon' src="{% static 'ukraine_swu/instagram.png' %}"></a>
           <a href="https://facebook.com"><img class='social-icon' src="{% static 'ukraine_swu/facebook.png' %}"></a>
