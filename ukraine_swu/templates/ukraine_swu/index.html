@@ -19,8 +19,9 @@
       {% for entry in entries %}
       <div class="entry-card">
           <div class="face face1">
+              
               <div class="content">
-                  <!--<img src="{{ entry.image }}">-->
+                <img src="{{ entry.image }}">
                   <h3><a href="{% url 'ukraine_swu:entry_page' entry.id %}">{{ entry.header }}</a></h3>
               </div>
           </div>

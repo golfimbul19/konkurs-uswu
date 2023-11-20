@@ -572,6 +572,10 @@ footer{
   height: 200px;
   transition: 0.5s;
 }
+.entry-cards .entry-card .face .content img{
+  width: 300px;
+  z-index: -1;
+}
 
 .entry-cards .entry-card .face.face1{
   position: relative;
@@ -590,8 +594,10 @@ footer{
 }
 
 .entry-cards .entry-card .face.face1 .content{
-  opacity: 0.7;
+  opacity: 0.8;
   transition: 0.5s;
+  display: flex;
+  text-align: center;
 }
 
 .entry-cards .entry-card:hover .face.face1 .content{
@@ -599,16 +605,19 @@ footer{
 }
 
 .entry-cards .entry-card .face.face1 .content img{
-  max-width: 150px;
+  max-width: 300px;
 }
 
 .entry-cards .entry-card .face.face1 .content h3{
   margin: 10px 0 0;
   padding: 0;
-  
   text-align: center;
-  font-size: 1.5em;
+  font-size: 1vw;
   transition: 0.5s;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 .entry-cards .entry-card .face.face1 .content h3 a{
   text-decoration: none;
