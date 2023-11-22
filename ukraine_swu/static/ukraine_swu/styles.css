@@ -419,6 +419,12 @@ padding: 5px;
 #content{
   padding: 0 40px 20px 40px;
 }
+@media (width<=740px){
+  #content{
+    padding: 0 10px 20px 10px;
+    font-size: 14px;
+}
+}
 #entry_image img{
   width: 100%;
   -o-object-fit: cover;
@@ -642,12 +648,9 @@ footer{
   left: 50%;
   transform: translate(-50%, -50%);
 }
-.entry-cards .entry-card .face.face1 .content h3 a{
+.entry-cards .entry-card .face.face1 .content h3{
   text-decoration: none;
   color: #ffffff;
-}
-.entry-cards .entry-card:hover .face.face1 .content h3 {
-  color: #111;
 }
 
 .entry-cards .entry-card .face.face2{
