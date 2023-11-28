@@ -16,12 +16,12 @@ class Topic(models.Model):
 class Entry(models.Model):
     """Проекти"""
     topic = models.ForeignKey(Topic, on_delete=models.CASCADE)
-    header = models.CharField(max_length=100, default='none')
+    header = models.CharField(max_length=100)
     text = models.TextField()
-    budget = models.IntegerField(default=0)
+    budget = models.IntegerField()
 
-    rich_text = RichTextField(default="Text")
-    image = models.TextField(default='https://media.sproutsocial.com/uploads/2017/02/10x-featured-social-media-image-size.png')
+    rich_text = RichTextField(default="Детально опишіть ваш проект")
+    image = models.TextField()
     date_added = models.DateTimeField(auto_now_add=True)
 
     class Meta:
