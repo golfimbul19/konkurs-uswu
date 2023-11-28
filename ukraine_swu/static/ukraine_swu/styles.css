@@ -179,7 +179,9 @@ body.open .menu a {
   font-family: "Euclid Circular A";
   padding: 20px 0;
 }
+
 /*Стилі головної сторінки*/
+
 .all{
   display: flex;
   flex-direction: column;
@@ -214,11 +216,190 @@ video{
   line-height: 100px;
   font-weight: bold;
 }
+/*Стилі карток матеріалів головної сторінки*/
+#projects-title{
+  text-align: center;
+}
+.entry-cards{
+  width: 1000px;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  margin: auto;
+  flex-wrap: wrap;
+}
+
+@media (width<=1000px){
+  .entry-cards{
+  width: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+}
+.entry-cards .entry-card{
+  position: relative;
+  cursor: pointer;
+}
+
+.entry-cards .entry-card .face{
+  width: 300px;
+  height: 200px;
+  transition: 0.5s;
+}
+.entry-cards .entry-card .face .content img{
+  width: 300px;
+  z-index: -1;
+}
+
+.entry-cards .entry-card .face.face1{
+  position: relative;
+  background: #333;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+  transform: translateY(100px);
+}
+
+.entry-cards .entry-card:hover .face.face1{
+  background: #ffbb00;
+  transform: translateY(0);
+
+}
+
+.entry-cards .entry-card .face.face1 .content{
+  opacity: 0.8;
+  transition: 0.5s;
+  display: flex;
+  text-align: center;
+}
+
+.entry-cards .entry-card:hover .face.face1 .content{
+  opacity: 1;
+}
+
+.entry-cards .entry-card .face.face1 .content img{
+  max-width: 300px;
+}
+
+.entry-cards .entry-card .face.face1 .content h3{
+  margin: 10px 0 0;
+  padding: 0;
+  text-align: center;
+  font-size: 1vw;
+  transition: 0.5s;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.entry-cards .entry-card .face.face1 .content h3 a{
+  text-decoration: none;
+  color: #ffffff;
+}
+.entry-cards .entry-card:hover .face.face1 .content h3 {
+  color: #111;
+}
+
+.entry-cards .entry-card .face.face2{
+  position: relative;
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  box-sizing: border-box;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8);
+  transform: translateY(-100px);
+}
+
+.entry-cards .entry-card:hover .face.face2{
+  transform: translateY(0);
+}
+
+.entry-cards .entry-card .face.face2 .content a{
+  margin: 15px 0 0;
+  display:  inline-block;
+  text-decoration: none;
+  font-weight: 900;
+  color: #333;
+  padding: 5px;
+  border: 1px solid #333;
+  transition: 0.5s;
+}
+
+.entry-cards .entry-card .face.face2 .content a:hover{
+  background: #ffbb00;
+  color: #111;
+  border: 1px solid #ffbb00;
+}
+/*Люди*/
+#people {
+  margin-bottom: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+#people_header{
+  margin-bottom: 50px;
+}
+
+.people-group {
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.people-item {
+  width: 15vw;
+  height: 75vh;
+  background-position: center;
+  background-size: 75vh;
+  margin: 1vw;
+  border-radius: 3vw;
+  display: inline-block;
+  cursor: pointer;
+  
+}
+.people-item h1{
+overflow: hidden;
+position: relative;
+top: 60vh;
+background-color: #889DB8;
+padding: 5px;
+
+}
+
+@media (width <= 780px) {
+  .people-group{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .people-item{
+    width: 85vw;
+    height: 50vh;
+    background-size: 50vh;
+  }
+  .people-item h1{
+    top: 40vh;
+    padding: 5px;
+    
+    }
+}
 
 /*Сторінка з проектами*/
 section{
   margin-top: 35px;
-  /*margin-bottom: 75px;*/
   }
 #grid-projects {
   display: flex;
@@ -326,67 +507,6 @@ section{
   }
 }
 
-/*Люди*/
-#people {
-  margin-bottom: 50px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  -webkit-user-select: none;
-      -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
-}
-
-#people_header{
-  margin-bottom: 50px;
-}
-
-.people-group {
-  text-align: center;
-  white-space: nowrap;
-  overflow: hidden;
-}
-
-.people-item {
-  width: 15vw;
-  height: 75vh;
-  background-position: center;
-  background-size: 75vh;
-  margin: 1vw;
-  border-radius: 3vw;
-  display: inline-block;
-  cursor: pointer;
-  
-}
-.people-item h1{
-overflow: hidden;
-position: relative;
-top: 60vh;
-background-color: #889DB8;
-padding: 5px;
-
-}
-
-@media (width <= 780px) {
-  .people-group{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-  .people-item{
-    width: 85vw;
-    height: 50vh;
-    background-size: 50vh;
-  }
-  .people-item h1{
-    top: 40vh;
-    padding: 5px;
-    
-    }
-}
 
   /*Сторінка окремого проекту*/
 
@@ -540,127 +660,3 @@ footer{
 }
 
 
-/*Стилі карток матеріалів головної сторінки*/
-#projects-title{
-  text-align: center;
-}
-.entry-cards{
-  width: 1000px;
-  position: relative;
-  display: flex;
-  justify-content: space-between;
-  margin: auto;
-  flex-wrap: wrap;
-}
-
-@media (width<=1000px){
-  .entry-cards{
-  width: 100%;
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-}
-.entry-cards .entry-card{
-  position: relative;
-  cursor: pointer;
-}
-
-.entry-cards .entry-card .face{
-  width: 300px;
-  height: 200px;
-  transition: 0.5s;
-}
-.entry-cards .entry-card .face .content img{
-  width: 300px;
-  z-index: -1;
-}
-
-.entry-cards .entry-card .face.face1{
-  position: relative;
-  background: #333;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 1;
-  transform: translateY(100px);
-}
-
-.entry-cards .entry-card:hover .face.face1{
-  background: #ffbb00;
-  transform: translateY(0);
-
-}
-
-.entry-cards .entry-card .face.face1 .content{
-  opacity: 0.8;
-  transition: 0.5s;
-  display: flex;
-  text-align: center;
-}
-
-.entry-cards .entry-card:hover .face.face1 .content{
-  opacity: 1;
-}
-
-.entry-cards .entry-card .face.face1 .content img{
-  max-width: 300px;
-}
-
-.entry-cards .entry-card .face.face1 .content h3{
-  margin: 10px 0 0;
-  padding: 0;
-  text-align: center;
-  font-size: 1vw;
-  transition: 0.5s;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-.entry-cards .entry-card .face.face1 .content h3 a{
-  text-decoration: none;
-  color: #ffffff;
-}
-.entry-cards .entry-card:hover .face.face1 .content h3 {
-  color: #111;
-}
-
-.entry-cards .entry-card .face.face2{
-  position: relative;
-  background: #fff;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 20px;
-  box-sizing: border-box;
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8);
-  transform: translateY(-100px);
-}
-
-.entry-cards .entry-card:hover .face.face2{
-  transform: translateY(0);
-}
-
-/*.entry-cards .entry-card .face.face2 .content p{
-  margin: 0;
-  padding: 0;
-}*/
-
-.entry-cards .entry-card .face.face2 .content a{
-  margin: 15px 0 0;
-  display:  inline-block;
-  text-decoration: none;
-  font-weight: 900;
-  color: #333;
-  padding: 5px;
-  border: 1px solid #333;
-  transition: 0.5s;
-}
-
-.entry-cards .entry-card .face.face2 .content a:hover{
-  background: #ffbb00;
-  color: #111;
-  border: 1px solid #ffbb00;
-}

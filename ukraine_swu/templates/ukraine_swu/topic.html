@@ -4,11 +4,11 @@
 
 <section id="entries-page">
   <div class="category-title"><h2>{{ topic.text }}</h2></div>
-
-  <div>
-    <a id="edit_entry" href="{% url 'ukraine_swu:new_entry' topic.id %}">Новий проект</a>
-  </div>
-
+  {% if user.is_authenticated %}
+    <div>
+      <a id="edit_entry" href="{% url 'ukraine_swu:new_entry' topic.id %}">Новий проект</a>
+    </div>
+  {% endif %}
   <div id="grid-projects">
     {% for entry in entries %}
     <div class="card">
